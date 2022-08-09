@@ -20,7 +20,6 @@ public class COMP2005 {
      */
     public static void main(String[] args) throws Exception {
 
-        JSONParser parser = new JSONParser();
         URL url = new URL("http://intelligent-social-robots-ws.com/senators.json");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -36,19 +35,6 @@ public class COMP2005 {
             System.out.println("\nJSON data in string format");
             System.out.println(inline);
             sc.close();
-        }
-        try {
-            Object obj = parser.parse(new FileReader("\\json.js"));
-            JSONObject jsonObject = (JSONObject) obj;
-            String fname = (String) jsonObject.get("firstname");
-            System.out.println("Name is " + fname);
-            String lname = (String) jsonObject.get("lastname");
-            System.out.println("Name is " + lname);
-
-            JSONArray array = (JSONArray) jsonObject.get("leadership_title");
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         }
 
     }
